@@ -17,9 +17,9 @@ def main():
                 print("Please enter a positive number.")
                 continue
             roll_dice(num)
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-            continue
+        except (ValueError, EOFError):
+            print("\nInput interrupted or invalid. Exiting.")
+            break
 
         again = input("Do you want to roll again? (y/n): ").strip().lower()
         if again != 'y':
